@@ -1,0 +1,15 @@
+[build]
+# jobs = 16  # Optional: set to your logical core count.
+
+[target.x86_64-pc-windows-msvc]
+# rust-lld ships with rustup and links Bevy projects faster than MSVC link.exe.
+linker = "rust-lld.exe"
+rustflags = ["-C", "link-arg=/NODEFAULTLIB:libcmt"]
+
+# Optional Cranelift dev setup.
+# Requires nightly cargo/rustc and the rustc-codegen-cranelift backend.
+# [unstable]
+# codegen-backend = true
+# 
+# [profile.dev]
+# codegen-backend = "cranelift"

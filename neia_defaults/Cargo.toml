@@ -1,0 +1,12 @@
+[package]
+name = "neia_defaults"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+neia_shared = { path = "../neia_shared/" }
+serde.workspace = true
+postcard.workspace = true
+uuid.workspace = true
+async-trait.workspace = true
+

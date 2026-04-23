@@ -1,0 +1,51 @@
+[app]
+app_env = "development"
+max_log_files = 5
+
+[network]
+protocol_id = 1
+available_bytes_per_tick = 65536
+resend_time_ms = 300
+gameplay_channel_memory_bytes = 1048576
+snapshots_channel_memory_bytes = 1048576
+chat_channel_memory_bytes = 65536
+errors_channel_memory_bytes = 65536
+
+[server]
+bind_ip = "127.0.0.1"
+port = 5000
+max_clients = 64
+delta_time_ms = 50
+token_expire_seconds = 300
+timeout_seconds = 10
+max_messages_per_tick = 100
+tick_latency_warn_ms = 10
+
+[http]
+bind_ip = "127.0.0.1"
+port = 8080
+header_value = "neia"
+request_timeout_ms = 5000
+max_request_body_size = 16384
+
+[shutdown]
+timeout_secs = 30
+graceful_wait_secs = 5
+
+[lobby]
+teams_enabled = true
+min_teams = 2
+max_teams = 4
+min_players_per_team = 1
+max_players_per_team = 4
+max_players = 16
+require_all_ready = true
+allow_spectators = true
+
+[client]
+default_player_name = "Player"
+default_server_addr = "127.0.0.1:5000"
+auto_connect = false
+
+[mods]
+manifests_dir = "mods"

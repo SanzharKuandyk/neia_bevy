@@ -1,0 +1,13 @@
+[package]
+name = "neia_client"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+neia_shared = { path = "../neia_shared" }
+postcard.workspace = true
+rand = "0.10.1"
+renet = "2.0.0"
+renet_netcode = "2.0.0"
+serde.workspace = true
+uuid.workspace = true

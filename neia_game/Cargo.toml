@@ -1,0 +1,61 @@
+[package]
+name = "neia_game"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = { version = "0.18.1", default-features = false, features = ["2d"] }
+bevy_fluent = "0.14.0"
+fluent_content = "0.0.5"
+unic-langid = { version = "0.9", features = ["macros"] }
+neia_client = { path = "../neia_client" }
+neia_config = { path = "../neia_config" }
+neia_defaults = { path = "../neia_defaults" }
+neia_mod = { path = "../neia_mod" }
+neia_shared = { path = "../neia_shared" }
+serde.workspace = true
+uuid.workspace = true
+hashbrown.workspace = true
+tracing = { version = "0.1.44", features = [
+    "max_level_debug",
+    "release_max_level_warn",
+] }
+
+[target.wasm32-unknown-unknown.dependencies]
+getrandom = { version = "0.3", features = ["wasm_js"] }
+
+[features]
+default = ["dev_native"]
+dev = [
+    "bevy/bevy_dev_tools",
+    "bevy/bevy_ui_debug",
+    "bevy/track_location",
+]
+dev_native = [
+    "dev",
+    "bevy/file_watcher",
+    "bevy/embedded_watcher",
+]
+dev_dynamic = [
+    "dev",
+    "bevy/dynamic_linking",
+]
+
+[package.metadata.bevy_cli.release]
+default-features = false
+
+[package.metadata.bevy_cli.web]
+default-features = false
+
+[package.metadata.bevy_cli.web.dev]
+features = ["dev"]
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(bevy_lint)"] }
+
+[lints.clippy]
+too_many_arguments = "allow"
+type_complexity = "allow"
+nonstandard_macro_braces = "warn"
+
+[package.metadata.bevy_lint]

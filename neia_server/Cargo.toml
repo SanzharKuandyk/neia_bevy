@@ -1,0 +1,45 @@
+[package]
+name = "neia_server"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "neia_server"
+path = "src/lib.rs"
+
+[[bin]]
+name = "neia_server_bin"
+path = "src/main.rs"
+
+[dependencies]
+neia_config = { path = "../neia_config" }
+neia_defaults = { path = "../neia_defaults" }
+neia_mod = { path = "../neia_mod" }
+neia_shared = { path = "../neia_shared" }
+chrono = { version = "0.4.44", features = ["serde"] }
+clap = { version = "4.6.0", features = ["derive"] }
+metrics = "0.24.3"
+metrics-util = "0.20.1"
+postcard.workspace = true
+rand = "0.10.0"
+renet = "2.0.0"
+renet_netcode = "2.0.0"
+serde.workspace = true
+tokio = { version = "1.50.0", features = ["full"] }
+tracing = "0.1.44"
+tracing-appender = "0.2.4"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter", "fmt", "json"] }
+serde_json = "1.0.149"
+uuid.workspace = true
+hashbrown.workspace = true
+async-trait.workspace = true
+axum = "0.8.8"
+tower = "0.5.3"
+tower-http = { version = "0.6.8", features = [
+  "trace",
+  "set-header",
+  "timeout",
+  "limit",
+  "sensitive-headers",
+] }
+hex = "0.4.3"
